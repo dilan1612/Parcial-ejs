@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./templates/header.ejs')%>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-header"><h1 style="text-align: center;"><%= title %></h1></div>
+      <div class="card-body">
+        <form method="post">
+          <div class="mb-3">
+            <label for="idGuitar" class="form-label">Id Guitar</label>
+            <input type="text" class="form-control" id="idGuitar" name="id">
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="nameGuitar">Nombre Guitar</label>
+            <input type="text" class="form-control" id="nameGuitar" name="name">
+          </div>
+
+          <div class="mb-3">
+            <label for="department" class="form-label">Departamento</label>
+            <select class="form-control" id="department" name="departamento">
+              <option value="">Seleccionar Departamento</option>
+              <% departments.forEach(dept => { %>
+                <option value="<%= dept.code %>"><%= dept.name %></option>
+              <% }) %>
+            </select>
+          </div>
+          
+          <div class="mb-3">
+            <label for="municipio" class="form-label">Municipio</label>
+            <select class="form-control" id="municipio" name="municipio" disabled>
+              <option value="">Seleccionar Municipio</option>
+            </select>
+          </div>
+          
+          <button class="btn btn-primary" type="submit">Enviar</button>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+  <%- include('./templates/footer.ejs') %>
+  <script src="js/scripts.js"></script>
+</body>
+</html>

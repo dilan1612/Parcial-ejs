@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./templates/header.ejs') %>
+<body>
+  <h1>Ejemplo de view engine EJS</h1>
+  <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas culpa reprehenderit assumenda veniam, iusto ducimus modi. Delectus a earum assumenda architecto quis repellat obcaecati aut nam laudantium. Deleniti, animi voluptates.</div>
+
+  <div>
+
+    <div class="container">
+      <a href="/new-record" class="btn btn-outline-primary mt-4">Nuevo</a>
+    </div>
+
+    <% if (data.size > 0) { %>
+      <table class="table table-border table-striped text-center mt-4">
+        <thead>
+          <tr>
+            <th>Id Guitar</th>
+            <th>Nombre Guitar</th>
+            <th>Departamento</th>
+            <th>Municipio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (const [K, v,d, m] of data) { %>
+            <tr>
+              <td>
+                <%= K %>
+              </td>
+              <td>
+                <%= v.name %>
+              </td>
+              <td><%= v.departamento %></td>
+              <td><%= v.municipio %></td>
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <a href="/new-record">Agregar nueva guitarra</a>
+    <% } %>
+  </div>
+  <%- include('./templates/footer.ejs') %>
+</body>
+</html>

@@ -35,6 +35,7 @@ document.getElementById('department').addEventListener('change', function () {
       return;
   }
 
+
   
   fetch(`/towns/${departmentCode}`)
       .then(response => response.json())
